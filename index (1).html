@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Makhana House – Pop. Crunch. Repeat.</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--champagne:#F4E4CF;--maroon:#6B183F;--dark:#4A102C;--gold:#C9A45C;--cream:#FFF8ED;--text:#2A1A1A;
+--goldgrad:linear-gradient(180deg,#F7D98A,#C9A45C);--maroongrad:linear-gradient(180deg,#8A2552,#5A1235)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:Poppins,Arial,sans-serif;color:var(--text);background:var(--cream);line-height:1.55;overflow-x:hidden}
+svg,img{max-width:100%;display:block}
+h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;line-height:1.15}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+.wrap{width:min(1160px,92%);margin:auto}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.ico{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:999px;font-weight:600;cursor:pointer;min-height:46px;padding:10px 26px;transition:filter .2s,transform .2s;border:0}
+.btn:hover{filter:brightness(1.12)}
+.btn-wa{background:var(--maroongrad);color:#fff;box-shadow:0 3px 8px rgba(74,16,44,.35),inset 0 0 0 1.5px rgba(201,164,92,.55)}
+.btn-gold{background:var(--goldgrad);color:var(--dark);font-size:1.05rem;box-shadow:0 4px 12px rgba(0,0,0,.3)}
+
+/* header */
+header{position:sticky;top:0;z-index:50;background:var(--cream)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:84px;gap:16px}
+.logo{display:block;flex:none}.logo svg,.logo img{height:68px;width:auto}
+nav ul{display:flex;gap:44px}
+nav a{font-weight:500;padding:6px 2px;border-bottom:2px solid transparent;color:var(--text)}
+nav a.on,nav a:hover{border-color:var(--maroon);color:var(--maroon)}
+.burger{display:none;background:none;border:0;color:var(--maroon);font-size:2rem;cursor:pointer;min-width:44px;min-height:44px}
+
+/* swoosh dividers */
+.sw{line-height:0;margin-top:-1px}.sw svg{width:100%;height:78px}
+
+/* hero */
+.hero{background:radial-gradient(ellipse at 72% 35%,#8a2150 0,#6B183F 45%,#4A102C 100%);color:var(--cream);position:relative;padding:20px 0 30px;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 25% at 80% 85%,rgba(255,255,255,.07),transparent),radial-gradient(ellipse 50% 20% at 55% 95%,rgba(0,0,0,.25),transparent)}
+.hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center;position:relative}
+.hero h1{font-size:clamp(2.6rem,5.6vw,4.3rem);color:#FBEBD3;font-weight:700;text-shadow:0 2px 6px rgba(0,0,0,.3)}
+.tag{font-family:'Playfair Display',serif;font-style:italic;font-weight:600;color:#F2C45A;font-size:clamp(1.7rem,3.2vw,2.3rem);margin:6px 0 20px}
+.points{display:flex;flex-wrap:wrap;align-items:center;gap:0;margin-bottom:26px}
+.points li{display:flex;align-items:center;gap:9px;padding:0 20px;border-left:1px solid rgba(244,228,207,.6)}
+.points li:first-child{padding-left:0;border:0}
+.points .ico{color:#F2C45A}
+
+/* products */
+#products{background:var(--cream);padding:6px 0 30px}
+.title{text-align:center;margin-bottom:34px}
+.title h2{display:inline-flex;align-items:center;gap:18px;font-size:clamp(2rem,4vw,2.9rem);color:var(--maroon);font-weight:700}
+.title svg{width:46px;height:32px;fill:var(--gold)}.title svg.r{transform:scaleX(-1)}
+.title p{font-size:.98rem;margin-top:6px}
+.cat{margin-top:40px}
+.cat h3{text-align:center;color:var(--maroon);font-size:1.5rem;margin-bottom:20px;display:flex;align-items:center;gap:16px}
+.cat h3::before,.cat h3::after{content:"";flex:1;height:2px;background:linear-gradient(90deg,transparent,var(--gold))}
+.cat h3::after{transform:scaleX(-1)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.card{background:linear-gradient(180deg,#FFF6E6,#FCEBD2);border:1px solid rgba(201,164,92,.45);border-radius:22px;padding:8px 8px 14px;box-shadow:0 8px 20px rgba(107,24,63,.14);display:flex;flex-direction:column;text-align:center}
+.pic{border-radius:16px;overflow:hidden;aspect-ratio:4/3.3;background:#eac79c}
+.pic svg,.pic img{width:100%;height:100%;object-fit:cover}
+.card h4{color:var(--maroon);font-size:1.25rem;margin:12px 6px 4px;font-weight:700}
+.card p{font-size:.84rem;color:#5a4040;margin:0 10px 10px;flex:1}
+.price{display:block;margin:0 14px 12px;border-radius:999px;background:var(--goldgrad);font-weight:600;font-size:1.1rem;padding:5px 8px;color:var(--text);box-shadow:inset 0 0 0 1px rgba(255,255,255,.35)}
+.card .btn{margin:0 12px;font-size:.92rem;padding:10px 12px}
+.demo{text-align:center;font-size:.8rem;color:var(--maroon);margin-top:26px}
+
+/* why */
+#about{background:linear-gradient(180deg,#6B183F,#5A1235);color:var(--cream);padding:6px 0 34px}
+#about h2{text-align:center;font-size:clamp(1.8rem,3.6vw,2.5rem);color:#FBEBD3;margin-bottom:26px}
+.why{display:grid;grid-template-columns:repeat(4,1fr)}
+.why div{text-align:center;padding:4px 18px;border-left:1px solid rgba(201,164,92,.55)}
+.why div:first-child{border:0}
+.why .ico{width:46px;height:46px;color:#F2C45A;margin:0 auto 8px;stroke-width:1.5}
+.why h3{font-size:1.15rem;font-weight:700;margin-bottom:2px;font-family:Poppins,sans-serif;font-weight:600}
+.why p{font-size:.88rem;opacity:.92}
+.banner{background:linear-gradient(180deg,#FFF6E6,#F9E5C8);border-radius:26px;margin-top:34px;padding:26px 44px;display:flex;align-items:center;justify-content:space-between;gap:22px;box-shadow:0 8px 24px rgba(0,0,0,.28)}
+.banner h2{text-align:left;color:var(--maroon);font-size:clamp(1.5rem,3vw,2.1rem);margin:0 0 4px}
+.banner p{color:var(--text)}
+.banner .btn{font-size:1.1rem;padding:14px 34px;flex:none}
+
+/* footer */
+.fpad{background:var(--dark);padding:0 0 14px;color:var(--champagne)}
+.fgrid{display:grid;grid-template-columns:1.2fr 1fr 1.5fr 1fr;padding:30px 0 6px}
+.fgrid>div{padding:0 28px;border-left:1px solid rgba(201,164,92,.5)}
+.fgrid>div:first-child{border:0;padding-left:0}
+footer h4{color:#FBEBD3;font-size:1.15rem;font-family:Poppins,sans-serif;font-weight:600;margin-bottom:12px}
+footer li{margin-bottom:8px;display:flex;align-items:center;gap:10px;font-size:.92rem}
+footer a:hover{color:var(--gold)}
+.soc{display:flex;gap:18px}.soc .ico{width:32px;height:32px}
+.copy{text-align:center;font-size:.8rem;opacity:.75;padding-top:10px}
+.floatwa{position:fixed;right:16px;bottom:16px;z-index:60;width:58px;height:58px;border-radius:50%;background:var(--maroongrad);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,.4),0 0 0 2px var(--gold)}
+.floatwa .ico{width:30px;height:30px}
+
+@media(max-width:1000px){
+ .grid{grid-template-columns:repeat(2,1fr)}
+ .why{grid-template-columns:repeat(2,1fr);row-gap:22px}.why div:nth-child(3){border:0}
+ .fgrid{grid-template-columns:1fr 1fr;row-gap:24px}.fgrid>div:nth-child(3){border:0;padding-left:0}
+}
+@media(max-width:820px){
+ .burger{display:block}
+ nav{position:absolute;top:84px;left:0;right:0;background:var(--cream);display:none;box-shadow:0 8px 14px rgba(0,0,0,.15);border-bottom:2px solid var(--gold)}
+ nav.open{display:block}
+ nav ul{flex-direction:column;gap:0}nav a{display:block;padding:15px 6%;border:0}
+ .head-cta span{display:none}.head-cta{padding:10px 14px}
+ .hero .wrap{grid-template-columns:1fr;text-align:center}
+ .points{justify-content:center}.points li{padding:0 12px}
+ .banner{flex-direction:column;text-align:center;padding:24px}.banner h2{text-align:center}
+ .sw svg{height:44px}
+}
+@media(max-width:520px){
+ .nav{height:72px}.logo svg,.logo img{height:54px}nav{top:72px}
+ .grid{gap:10px}.card{padding:5px 5px 10px;border-radius:16px}
+ .card h4{font-size:1rem;margin:8px 4px 2px}.card p{font-size:.74rem;margin:0 4px 8px}
+ .price{font-size:.88rem;margin:0 6px 8px}
+ .card .btn{margin:0 4px;font-size:.74rem;padding:9px 6px;gap:5px;min-height:42px}.card .btn .ico{width:16px;height:16px}
+ .points{flex-direction:column;align-items:center;gap:8px}.points li{border:0!important;padding:0}
+ .why{grid-template-columns:1fr}.why div{border:0;border-top:1px solid rgba(201,164,92,.4);padding-top:16px}.why div:first-child{border:0}
+ .fgrid{grid-template-columns:1fr}.fgrid>div{border:0;padding:0}
+ .title h2{gap:10px}.title svg{width:30px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+ <linearGradient id="gold" x1="0" x2="1"><stop offset="0" stop-color="#8d6a25"/><stop offset=".3" stop-color="#F7D98A"/><stop offset=".6" stop-color="#C9A45C"/><stop offset="1" stop-color="#F3CF7A"/></linearGradient>
+ <symbol id="i-wa" viewBox="0 0 24 24"><path d="M20.5 12a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.2-4.3A8.5 8.5 0 1 1 20.5 12z"/><path d="M9 8.3c.3-.5.9-.6 1.2-.2l.8 1.1c.2.3.2.6 0 .9l-.5.6c.6 1.2 1.6 2.2 2.8 2.8l.6-.5c.3-.2.6-.2.9 0l1.1.8c.4.3.3.9-.2 1.2-1.8 1.100-4 .4-6-1.600S7.900 10.100 9 8.300z"/></symbol>
+ <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 19C4 11 9 5 20 4c0 10-5 15-13 14"/><path d="M5 19c3-5 6-8 10-10"/></symbol>
+ <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-8-5-8-10.500A4.500 4.500 0 0 1 12 7a4.500 4.500 0 0 1 8 2.500C20 15 12 20 12 20z"/></symbol>
+ <symbol id="i-lotus" viewBox="0 0 24 24"><path d="M12 4c3 3 3 8 0 12-3-4-3-9 0-12z"/><path d="M12 16C8 16 4 14 3 9c4 0 7 2 9 7zM12 16c4 0 8-2 9-7-4 0-7 2-9 7z"/><path d="M5 19h14"/></symbol>
+ <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-4 8-8 9-4-1-8-4-8-9V6z"/><path d="M8.500 12l2.500 2.500 4.500-5"/></symbol>
+ <symbol id="i-flask" viewBox="0 0 24 24"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 2 3h10a2 2 0 0 0 2-3l-5-9V3"/><path d="M7.500 15h9"/></symbol>
+ <symbol id="i-truck" viewBox="0 0 24 24"><path d="M2 6h11v10H2zM13 9h4l3 3v4h-7"/><circle cx="6.500" cy="17.500" r="1.800"/><circle cx="16.500" cy="17.500" r="1.800"/><path d="M4 9h5M5 12h3"/></symbol>
+ <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 7 9-7"/></symbol>
+ <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.500"/></symbol>
+ <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
+</defs></svg>
+
+<header>
+ <div class="wrap nav">
+  <a href="#home" class="logo" aria-label="Makhana House home"></a>
+  <nav id="menu" aria-label="Main"><ul>
+   <li><a href="#home" class="on">Home</a></li><li><a href="#products">Products</a></li>
+   <li><a href="#about">About Us</a></li><li><a href="#contact">Contact</a></li>
+  </ul></nav>
+  <a class="btn btn-wa head-cta" data-wa="Hi Makhana House, I would like to know more about your products." target="_blank" rel="noopener"><svg class="ico"><use href="#i-wa"/></svg><span>Chat on WhatsApp</span></a>
+  <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">☰</button>
+ </div>
+</header>
+
+<div class="sw" data-top="#FFF8ED" data-bot="#6B183F"></div>
+<section class="hero" id="home">
+ <div class="wrap">
+  <div>
+   <h1>Premium<br>Makhana Snacks</h1>
+   <p class="tag">Pop. Crunch. Repeat.</p>
+   <ul class="points">
+    <li><svg class="ico"><use href="#i-leaf"/></svg>Crunchy</li>
+    <li><svg class="ico"><use href="#i-heart"/></svg>Healthy</li>
+    <li><svg class="ico"><use href="#i-lotus"/></svg>Light &amp; Tasty</li>
+   </ul>
+   <a href="#products" class="btn btn-gold">Explore Our Products <svg class="ico"><use href="#i-arrow"/></svg></a>
+  </div>
+  <div id="heroArt"></div>
+ </div>
+</section>
+<div class="sw" data-top="#4A102C" data-bot="#FFF8ED"></div>
+
+<section id="products">
+ <div class="wrap">
+  <div class="title">
+   <h2><svg viewBox="0 0 46 32"><use href="#leafdeco"/></svg>Our Products<svg class="r" viewBox="0 0 46 32"><use href="#leafdeco"/></svg></h2>
+   <p>Explore our range of delicious and healthy makhana snacks with transparent pricing.</p>
+  </div>
+  <div id="catalogue"></div>
+  <p class="demo">Product names, prices and pack sizes are demo data and will be updated.</p>
+ </div>
+</section>
+<svg width="0" height="0" style="position:absolute"><defs><g id="leafdeco"><path d="M2 24C10 22 20 14 24 4c2 10-4 18-20 20z" fill="#C9A45C"/><path d="M22 28c8-2 16-8 22-20-2 12-8 20-22 20z" fill="#B08A40"/></g></defs></svg>
+
+<div class="sw" data-top="#FFF8ED" data-bot="#6B183F"></div>
+<section id="about">
+ <div class="wrap">
+  <h2>Why Choose Makhana House?</h2>
+  <div class="why">
+   <div><svg class="ico"><use href="#i-leaf"/></svg><h3>Healthy Snack</h3><p>Low calorie &amp; high nutrition</p></div>
+   <div><svg class="ico"><use href="#i-shield"/></svg><h3>Premium Quality</h3><p>Carefully sourced makhana</p></div>
+   <div><svg class="ico"><use href="#i-flask"/></svg><h3>No Added Preservatives</h3><p>Pure &amp; natural ingredients</p></div>
+   <div><svg class="ico"><use href="#i-truck"/></svg><h3>Quick Support</h3><p>Get assistance on WhatsApp</p></div>
+  </div>
+  <div class="banner">
+   <div><h2>Have a Question or Want to Order?</h2><p>Chat with us on WhatsApp and get a quick response.</p></div>
+   <a class="btn btn-wa" data-wa="Hi Makhana House, I have a question about your products." target="_blank" rel="noopener"><svg class="ico" style="width:28px;height:28px"><use href="#i-wa"/></svg>Chat on WhatsApp <svg class="ico"><use href="#i-arrow"/></svg></a>
+  </div>
+ </div>
+</section>
+
+<div class="sw" data-top="#5A1235" data-bot="#4A102C"></div>
+<footer id="contact" class="fpad">
+ <div class="wrap">
+  <div class="fgrid">
+   <div><a href="#home" class="logo" id="flogo"></a></div>
+   <div><h4>Quick Links</h4><ul>
+    <li><a href="#home">Home</a></li><li><a href="#products">Products</a></li><li><a href="#about">About Us</a></li><li><a href="#contact">Contact</a></li></ul></div>
+   <div><h4>Contact Us</h4><ul>
+    <li><svg class="ico"><use href="#i-wa"/></svg><a data-wa="Hi Makhana House, I would like to get in touch." target="_blank" rel="noopener">+91 63838 29789</a></li>
+    <li><svg class="ico"><use href="#i-mail"/></svg><span id="email"></span></li>
+    <li><svg class="ico"><use href="#i-pin"/></svg><span id="addr"></span></li></ul></div>
+   <div><h4>Follow Us</h4><div class="soc">
+    <a id="s-ig" href="#" aria-label="Instagram" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.200" cy="6.800" r=".6"/></svg></a>
+    <a id="s-yt" href="#" aria-label="YouTube" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9l5 3-5 3z"/></svg></a>
+    <a id="s-fb" href="#" aria-label="Facebook" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M13.500 20v-7h2.300l.4-2.700h-2.700V8.800c0-.8.300-1.300 1.400-1.300h1.400V5.100a14 14 0 0 0-2-.1c-2 0-3.400 1.200-3.400 3.500v1.800H8.500V13h2.400v7"/></svg></a>
+   </div></div>
+  </div>
+  <p class="copy">© <span id="yr"></span> Makhana House. All rights reserved.</p>
+ </div>
+</footer>
+
+<a class="floatwa" data-wa="Hi Makhana House, I would like to know more about your products." target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg class="ico"><use href="#i-wa"/></svg></a>
+
+<script>
+/* ============ EDIT HERE ============ */
+const SETTINGS = {
+  brand: "Makhana House",
+  whatsapp: "916383829789",
+  logo: "",   // put your logo file path here, e.g. "images/logo.png". Empty = drawn placeholder logo
+  email: "[ Add email here ]",
+  address: "[ Add address here ]",
+  instagram: "",  // paste your link, e.g. "https://instagram.com/yourpage"
+  youtube: "",
+  facebook: ""
+};
+
+/* category: tin | pack | raw.   image: optional photo path (e.g. "images/tin1.jpg"); "" = drawn placeholder.
+   color = pack colour, tint = colour of the makhana pieces (flavour look). */
+const PRODUCTS = [
+ {name:"Tin Box Makhana 01",category:"tin",description:"Crunchy roasted makhana in a gift-ready tin.",price:"₹ 299",size:"100 g",image:"",color:"#6B183F",tint:"#F8EBD2"},
+ {name:"Tin Box Makhana 02",category:"tin",description:"Warm, spiced makhana with a bold masala kick.",price:"₹ 299",size:"100 g",image:"",color:"#8A2552",tint:"#F0922E"},
+ {name:"Tin Box Makhana 03",category:"tin",description:"Herb and pepper flavour for a savoury crunch.",price:"₹ 319",size:"100 g",image:"",color:"#4A102C",tint:"#D9D4AE"},
+ {name:"Tin Box Makhana 04",category:"tin",description:"Rich, creamy cheese-style flavour.",price:"₹ 319",size:"100 g",image:"",color:"#7A1F3D",tint:"#F6C32E"},
+ {name:"Tin Box Makhana 05",category:"tin",description:"Tangy and lightly spiced, made for tea-time.",price:"₹ 329",size:"120 g",image:"",color:"#5C1A3A",tint:"#E4703A"},
+ {name:"Tin Box Makhana 06",category:"tin",description:"Sweet and gently flavoured makhana.",price:"₹ 329",size:"120 g",image:"",color:"#93305A",tint:"#F3D5BE"},
+ {name:"Tin Box Makhana 07",category:"tin",description:"Our festive tin, perfect for gifting.",price:"₹ 349",size:"150 g",image:"",color:"#3E0E26",tint:"#EFE0BB"},
+ {name:"Flavoured Pack Makhana 01",category:"pack",description:"Everyday flavoured makhana in a handy pouch.",price:"₹ 149",size:"60 g",image:"",color:"#6B183F",tint:"#F0922E"},
+ {name:"Flavoured Pack Makhana 02",category:"pack",description:"Tangy and crunchy, made for sharing.",price:"₹ 149",size:"60 g",image:"",color:"#A0476B",tint:"#F6C32E"},
+ {name:"Flavoured Pack Makhana 03",category:"pack",description:"Smooth, mild flavour for the whole family.",price:"₹ 159",size:"70 g",image:"",color:"#4A102C",tint:"#D9D4AE"},
+ {name:"Flavoured Pack Makhana 04",category:"pack",description:"A bold flavour in a travel-friendly pack.",price:"₹ 159",size:"70 g",image:"",color:"#85264F",tint:"#E4703A"},
+ {name:"Raw Makhana 01",category:"raw",description:"Plain, unflavoured makhana for your own recipes.",price:"₹ 249",size:"250 g",image:"",color:"#C9A45C",tint:"#F8EBD2"},
+ {name:"Raw Makhana 02",category:"raw",description:"Large, premium-grade raw makhana.",price:"₹ 449",size:"500 g",image:"",color:"#B08A40",tint:"#FBF1DC"}
+];
+const CATEGORIES = [
+ {key:"tin",title:"Flavoured Tin Box Makhana"},
+ {key:"pack",title:"Flavoured Packed Makhana"},
+ {key:"raw",title:"Raw Makhana"}
+];
+/* =================================== */
+
+const $ = id => document.getElementById(id);
+const waLink = m => "https://wa.me/" + SETTINGS.whatsapp + "?text=" + encodeURIComponent(m);
+
+/* ---- drawn makhana pieces ---- */
+function puff(x,y,r,tint,k){
+  const sp=[[.25,-.1],[-.3,.15],[.05,.35],[-.1,-.4]].slice(0,2+k%3).map(([a,b],j)=>
+    `<ellipse cx="${(x+a*r).toFixed(1)}" cy="${(y+b*r).toFixed(1)}" rx="${(r*.09).toFixed(1)}" ry="${(r*.13).toFixed(1)}" fill="#B5452A" opacity=".8" transform="rotate(${j*50} ${x} ${y})"/>`).join("");
+  return `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r.toFixed(1)}" fill="${tint}" stroke="rgba(120,70,30,.35)" stroke-width="${(r*.05).toFixed(1)}"/>
+  <circle cx="${(x-r*.3).toFixed(1)}" cy="${(y-r*.32).toFixed(1)}" r="${(r*.42).toFixed(1)}" fill="#fff" opacity=".35"/>${sp}`;
+}
+function pile(cx,cy,n,spread,r,tint,squash){
+  let s="";
+  for(let i=n;i>=0;i--){
+    const a=i*2.4,d=spread*Math.sqrt(i/n);
+    s+=puff(cx+Math.cos(a)*d,cy+Math.sin(a)*d*squash,r*(.88+(i%4)*.06),tint,i);
+  }
+  return s;
+}
+
+/* ---- product picture: pack on warm backdrop ---- */
+function art(p,i){
+  const g="#C9A45C",c=p.color,t=p.name;
+  const bg=`<defs><linearGradient id="b${i}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F7DDB5"/><stop offset="1" stop-color="#E2B284"/></linearGradient></defs>
+   <rect width="240" height="200" fill="url(#b${i})"/>
+   <ellipse cx="30" cy="30" rx="34" ry="14" fill="#4F7A34" opacity=".55" transform="rotate(-25 30 30)"/>
+   <ellipse cx="62" cy="14" rx="26" ry="10" fill="#6B9444" opacity=".5" transform="rotate(15 62 14)"/>
+   <ellipse cx="214" cy="26" rx="30" ry="12" fill="#4F7A34" opacity=".5" transform="rotate(30 214 26)"/>
+   <ellipse cx="120" cy="196" rx="140" ry="34" fill="#D9A877" opacity=".7"/>
+   <ellipse cx="120" cy="170" rx="70" ry="9" fill="rgba(60,20,10,.28)"/>
+   <g fill="#5a2d1a" opacity=".7"><circle cx="28" cy="170" r="2"/><circle cx="38" cy="176" r="1.500"/><circle cx="208" cy="174" r="2"/><circle cx="198" cy="180" r="1.500"/><circle cx="18" cy="184" r="1.500"/></g>`;
+  const lab=(y,sz)=>`<text x="120" y="${y}" text-anchor="middle" font-family="Georgia,serif" font-weight="700" font-size="${sz}" fill="${g}">Makhana House</text><text x="120" y="${y+10}" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="6.500" fill="#F4E4CF">Pop. Crunch. Repeat.</text>`;
+  let body="";
+  if(p.category==="tin"){
+    body=`${pile(70,160,7,18,12,p.tint,.4)}${pile(172,158,8,20,12,p.tint,.4)}
+     <rect x="86" y="46" width="68" height="118" rx="6" fill="${c}"/>
+     <rect x="86" y="46" width="68" height="118" rx="6" fill="#fff" opacity=".08"/>
+     <rect x="82" y="36" width="76" height="16" rx="5" fill="${g}"/><rect x="82" y="38" width="76" height="4" rx="2" fill="#fff" opacity=".35"/>
+     <rect x="86" y="${i%2?64:150}" width="68" height="${i%2?5:6}" fill="${g}"/>
+     <circle cx="120" cy="104" r="${28+i%3*2}" fill="none" stroke="${g}" stroke-width="1.2" stroke-dasharray="${1.5+i%3} 3"/>
+     <circle cx="120" cy="104" r="${22}" fill="${p.tint}" opacity=".25"/>
+     ${lab(98,10)}<rect x="104" y="124" width="32" height="6" rx="3" fill="${p.tint}"/>`;
+  }else if(p.category==="pack"){
+    body=`${pile(62,164,6,16,11,p.tint,.4)}${pile(180,162,6,16,11,p.tint,.4)}
+     <path d="M82 36H158L164 168Q120 178 76 168Z" fill="${c}"/>
+     <path d="M82 36H158L159 48H81Z" fill="${g}"/>
+     <path d="M82 42h76" stroke="${c}" stroke-width="1" stroke-dasharray="2 2"/>
+     <path d="M80 ${70+i%3*4} Q120 ${92+i%3*4} 160 ${70+i%3*4}V${86+i%3*4}Q120 ${108+i%3*4} 80 ${86+i%3*4}Z" fill="${p.tint}" opacity=".9"/>
+     <rect x="92" y="112" width="56" height="42" rx="21" fill="${c}" stroke="${g}" stroke-width="1.200"/>
+     ${lab(130,8.500)}${pile(120,162,5,12,9,p.tint,.4)}`;
+  }else{
+    body=`${pile(66,162,6,16,11,p.tint,.4)}
+     <path d="M84 40H156L162 168Q120 176 78 168Z" fill="#E7CFA5" stroke="${g}" stroke-width="2"/>
+     <path d="M84 40H156" stroke="${g}" stroke-width="3"/><path d="M82 34q38 -8 76 0" fill="none" stroke="#8a5a2a" stroke-width="2"/>
+     <rect x="92" y="60" width="56" height="40" rx="10" fill="#FBF1DC" stroke="${g}" stroke-width="1"/>${pile(120,82,9,15,8,p.tint,.55)}
+     <rect x="92" y="108" width="56" height="32" rx="4" fill="#6B183F"/>
+     <text x="120" y="121" text-anchor="middle" font-family="Georgia,serif" font-weight="700" font-size="8" fill="${g}">Makhana House</text>
+     <text x="120" y="133" text-anchor="middle" font-size="6.500" fill="#F4E4CF" font-family="Arial">RAW MAKHANA</text>
+     ${pile(176,162,6,16,11,p.tint,.4)}`;
+  }
+  return `<svg viewBox="0 0 240 200" preserveAspectRatio="xMidYMid slice" role="img" aria-label="${t}">${bg}${body}</svg>`;
+}
+
+/* ---- logo (replace by setting SETTINGS.logo) ---- */
+function logoHTML(){
+  if(SETTINGS.logo) return `<img src="${SETTINGS.logo}" alt="${SETTINGS.brand} logo">`;
+  return `<svg viewBox="0 0 190 100" role="img" aria-label="${SETTINGS.brand}"><defs><linearGradient id="lg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9B2A5E"/><stop offset="1" stop-color="#5A1235"/></linearGradient></defs>
+  <path d="M14 18C40 4 80 18 120 8c30-8 56 0 62 16 4 16-8 40-34 46-30 7-50-6-78 0-26 6-52 8-60-10C-4 46 0 26 14 18z" fill="url(#lg)" stroke="#C9A45C" stroke-width="1.500"/>
+  <text x="95" y="38" text-anchor="middle" font-family="Georgia,serif" font-weight="700" font-size="25" fill="#FFF8ED">Makhana</text>
+  <text x="95" y="60" text-anchor="middle" font-family="Georgia,serif" font-weight="700" font-size="25" fill="#FFF8ED">House</text>
+  <text x="104" y="90" text-anchor="middle" font-family="Arial" font-weight="700" font-size="9" fill="#6B183F" transform="rotate(-5 104 90)">POP. CRUNCH. REPEAT.</text></svg>`;
+}
+document.querySelectorAll(".logo").forEach(e=>e.innerHTML=logoHTML());
+
+/* ---- hero bowl ---- */
+(function(){
+  const tint="#FBF0DA";
+  let pcs="";
+  for(let i=44;i>=0;i--){const a=i*2.4,d=118*Math.sqrt(i/44);
+    pcs+=puff(235+Math.cos(a)*d,128+Math.sin(a)*d*.45-(1-i/44)*0,27+(i%4)*2,tint,i);}
+  $("heroArt").innerHTML=`<svg viewBox="0 0 470 370" role="img" aria-label="Wooden bowl of premium makhana">
+   <defs><linearGradient id="wd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#C27A36"/><stop offset=".5" stop-color="#9A5524"/><stop offset="1" stop-color="#6A3515"/></linearGradient></defs>
+   <ellipse cx="235" cy="338" rx="190" ry="16" fill="rgba(0,0,0,.35)"/>
+   <ellipse cx="235" cy="168" rx="185" ry="34" fill="#6A3515"/>
+   ${pcs}
+   <path d="M50 170Q235 222 420 170C412 280 330 332 235 334C140 332 58 280 50 170Z" fill="url(#wd)"/>
+   <path d="M50 170Q235 222 420 170" fill="none" stroke="#D9964D" stroke-width="5"/>
+   <path d="M90 230q145 50 290 0M110 262q125 38 250 0" fill="none" stroke="#5a2d12" stroke-width="2" opacity=".4"/>
+   ${puff(98,314,30,tint,3)}${puff(165,326,26,tint,1)}${puff(48,276,0,tint,2)}${puff(342,332,28,tint,4)}
+   <g stroke="#F2C45A" stroke-width="4" stroke-linecap="round"><path d="M42 80l26 12M60 52l16 20M90 38l8 24"/></g></svg>`;
+})();
+
+/* ---- swooshes ---- */
+document.querySelectorAll(".sw").forEach(e=>{
+  const curve="M0 46C160 86 340 6 580 36S960 84 1200 20";
+  e.innerHTML=`<svg viewBox="0 0 1200 90" preserveAspectRatio="none" aria-hidden="true">
+   <rect width="1200" height="90" fill="${e.dataset.top}"/>
+   <path d="${curve}V90H0Z" fill="${e.dataset.bot}"/>
+   <path d="${curve}" fill="none" stroke="url(#gold)" stroke-width="5" vector-effect="non-scaling-stroke"/>
+   <path d="M0 56C160 96 340 16 580 46S960 94 1200 30" fill="none" stroke="url(#gold)" stroke-width="1.800" opacity=".8" vector-effect="non-scaling-stroke"/></svg>`;
+});
+
+/* ---- catalogue ---- */
+let idx=0;
+CATEGORIES.forEach(c=>{
+  const sec=document.createElement("div");sec.className="cat";
+  sec.innerHTML=`<h3>${c.title}</h3><div class="grid"></div>`;
+  const grid=sec.querySelector(".grid");
+  PRODUCTS.filter(p=>p.category===c.key).forEach(p=>{
+    const i=idx++;
+    const msg=`Hi Makhana House, I am interested in ${p.name}. Please share more details about the product.`;
+    const card=document.createElement("article");card.className="card";
+    card.innerHTML=`<div class="pic">${p.image?`<img src="${p.image}" alt="${p.name}" loading="lazy">`:art(p,i)}</div>
+     <h4>${p.name}</h4><p>${p.description}</p>
+     <span class="price">${p.price} / ${p.size}</span>
+     <a class="btn btn-wa" href="${waLink(msg)}" target="_blank" rel="noopener"><svg class="ico"><use href="#i-wa"/></svg>Chat on WhatsApp</a>`;
+    grid.appendChild(card);
+  });
+  $("catalogue").appendChild(sec);
+});
+
+/* ---- misc ---- */
+document.querySelectorAll("[data-wa]").forEach(a=>a.href=waLink(a.dataset.wa));
+$("email").textContent=SETTINGS.email;$("addr").textContent=SETTINGS.address;
+[["s-ig","instagram"],["s-yt","youtube"],["s-fb","facebook"]].forEach(([id,k])=>{if(SETTINGS[k])$(id).href=SETTINGS[k];});
+$("yr").textContent=new Date().getFullYear();
+const burger=$("burger"),menu=$("menu");
+burger.onclick=()=>{const o=menu.classList.toggle("open");burger.setAttribute("aria-expanded",o)};
+menu.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{
+  menu.classList.remove("open");burger.setAttribute("aria-expanded",false);
+  menu.querySelectorAll("a").forEach(x=>x.classList.toggle("on",x===a));}));
+</script>
+</body>
+</html>
